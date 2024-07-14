@@ -1,4 +1,4 @@
-
+// BaseError class to handle different types of errors
 class BaseError extends Error {
   constructor(statusCode, description, meta= {}) {
     super(description);
@@ -6,7 +6,7 @@ class BaseError extends Error {
     Object.setPrototypeOf(this, new.target.prototype);
     this.statusCode = statusCode;
     this.meta = meta;
-    Error.captureStackTrace(this);
+    Error.captureStackTrace(this);      // Capture the stack trace for better error tracking
   }
 }
 

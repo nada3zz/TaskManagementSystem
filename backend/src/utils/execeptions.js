@@ -1,5 +1,6 @@
 const { BaseError, httpStatusCodes } = require("./baseError");
 
+//custom error claases
 class NotFoundException extends BaseError {
   constructor(description, statusCode = httpStatusCodes.NOT_FOUND) {
     super(statusCode, description);

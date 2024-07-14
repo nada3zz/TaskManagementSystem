@@ -1,4 +1,4 @@
-
+// controller middleware takes a service as a parameter to standardize the way responses and errors are managed
 const controller = (service) => {
   return async (req, res, next) => {
     try {
