@@ -1,0 +1,39 @@
+version: "3.8"
+
+networks:
+  task-network:
+    driver: bridge
+
+volumes:
+  sql_data:
+    driver: local
+
+services:
+  api-dev:
+    container_name: api-dev
+    depends_on:
+      - db
+    restart: always
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - task-network
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    build: .
+    ports:
+      - "3000:3000"
+
+  db:
+    container_name: task-db
+    restart: always
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    volumes:
+      - sql_data:/var/opt/mssql
+    networks:
+      - task-network
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "1433:1433"
