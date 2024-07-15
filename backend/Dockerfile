@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json .
 
-RUN npm i pm2 -g
+RUN npm install  && npm install pm2 -g
 
 EXPOSE 3000
 
