@@ -58,4 +58,4 @@ To run this project, use env.example and add the your environment variables and 
 docker-compose up
 ```
 
-### Note that I attached postman collection illustrating the endpoint
+#### Note the attached postman collection documenting the endpoints
