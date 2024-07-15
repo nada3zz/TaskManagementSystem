@@ -22,7 +22,7 @@ services:
       DATABASE_URL: ${DATABASE_URL}
     build: .
     ports:
-      - "8000:8000"
+      - "3000:3000"
 
   db:
     container_name: task-db
